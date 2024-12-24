@@ -12,7 +12,34 @@ const PanelHeading = ({ children }) => (
   </div>
 );
 
+const BalanceSection = ({ balance, onClaim }) => (
+  <div className="mb-6 p-4 bg-surface-lighter rounded-lg border border-surface-border">
+    <div className="flex justify-between items-center mb-2">
+      <h3 className="text-accent-2 text-sm">Balance</h3>
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={onClaim}
+        className="px-3 py-1 text-xs font-casino bg-gradient-game text-white rounded-full hover:shadow-neon transition-all duration-300"
+      >
+        Claim Reward
+      </motion.button>
+    </div>
+    <div className="text-white text-2xl font-bold font-casino">{balance} SOL</div>
+  </div>
+);
+
 const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameState }) => {
+  const handleClaim = async () => {
+    try {
+      // Add your claim logic here
+      console.log('Claiming rewards...');
+      // Example: await claimRewards();
+    } catch (error) {
+      console.error('Error claiming rewards:', error);
+    }
+  };
+
   return (
     <div className="lg:col-span-4 space-y-4">
       <motion.div
@@ -22,10 +49,7 @@ const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameSt
         <PanelHeading>
           {gameState === 'idle' ? 'Place Your Bet' : 'Current Bet'}
         </PanelHeading>
-        <div className="mb-4">
-          <div className="text-accent-2 text-sm mb-1">Balance</div>
-          <div className="text-white text-xl font-bold">{balance} SOL</div>
-        </div>
+        <BalanceSection balance={balance} onClaim={handleClaim} />
         <BetSelector
           value={betAmount}
           onChange={setBetAmount}
