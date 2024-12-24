@@ -22,7 +22,7 @@ const BalanceSection = ({ balance, onClaim }) => (
         onClick={onClaim}
         className="px-3 py-1 text-xs font-casino bg-gradient-game text-white rounded-full hover:shadow-neon transition-all duration-300"
       >
-        Claim Reward
+        Claim balance
       </motion.button>
     </div>
     <div className="text-white text-2xl font-bold font-casino">{balance} SOL</div>
