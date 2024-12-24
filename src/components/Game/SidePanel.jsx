@@ -12,23 +12,31 @@ const PanelHeading = ({ children }) => (
   </div>
 );
 
-const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats }) => {
+const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameState }) => {
   return (
     <div className="lg:col-span-4 space-y-4">
       <motion.div
-        className="bg-surface/90 border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
+        className="bg-surface border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
         whileHover={{ scale: 1.01 }}
       >
-        <PanelHeading>Place Your Bet</PanelHeading>
+        <PanelHeading>
+          {gameState === 'idle' ? 'Place Your Bet' : 'Current Bet'}
+        </PanelHeading>
+        <div className="mb-4">
+          <div className="text-accent-2 text-sm mb-1">Balance</div>
+          <div className="text-white text-xl font-bold">{balance} SOL</div>
+        </div>
         <BetSelector
           value={betAmount}
           onChange={setBetAmount}
           onPlaceBet={onPlaceBet}
+          disabled={gameState !== 'idle'}
         />
       </motion.div>
 
+      {/* Stats Panel */}
       <motion.div
-        className="bg-surface/90 border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
+        className="bg-surface border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
         whileHover={{ scale: 1.01 }}
       >
         <PanelHeading>Game Statistics</PanelHeading>

@@ -8,22 +8,29 @@ import GameTable from './GameTable';
 import SidePanel from './SidePanel';
 
 const GameContent = () => {
-  const { gameState, stats, calculateHand } = useBlackjack();
+  const {
+    playerHand,
+    dealerHand,
+    gameState,
+    stats,
+    balance,
+    currentBet,
+    dealCards,
+    hit,
+    stand,
+    calculateHand
+  } = useBlackjack();
+
   const [betAmount, setBetAmount] = useState(0);
-  const [dealerCards, setDealerCards] = useState([
-    { suit: "♠", value: "A" },
-    { suit: "♥", value: "10" },
-  ]);
-  const [playerCards, setPlayerCards] = useState([
-    { suit: "♦", value: "J" },
-    { suit: "♣", value: "8" },
-  ]);
 
   const handlePlaceBet = () => {
-    if (betAmount <= 0) return;
-    playSound("chip");
-    setGameState("betting");
-    console.log(`Placing bet of ${betAmount} SOL`);
+    if (betAmount <= 0 || betAmount > balance) return;
+    dealCards(betAmount);
+  };
+
+  const handleGameAction = (action) => {
+    if (action === 'hit') hit();
+    if (action === 'stand') stand();
   };
 
   return (
@@ -37,15 +44,20 @@ const GameContent = () => {
         <div className="grid lg:grid-cols-12 gap-4 sm:gap-8">
           <GameTable 
             gameState={gameState}
-            dealerCards={dealerCards}
-            playerCards={playerCards}
+            dealerCards={dealerHand}
+            playerCards={playerHand}
             calculateHand={calculateHand}
+            onDeal={handlePlaceBet}
+            onHit={hit}
+            onStand={stand}
           />
           <SidePanel 
             betAmount={betAmount}
             setBetAmount={setBetAmount}
             onPlaceBet={handlePlaceBet}
             stats={stats}
+            balance={balance}
+            gameState={gameState}
           />
         </div>
       </div>

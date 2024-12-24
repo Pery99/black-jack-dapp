@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const predefinedBets = [0.1, 0.5, 1, 2, 5];
 
-const BetSelector = ({ value, onChange, onPlaceBet }) => {
+const BetSelector = ({ value, onChange, onPlaceBet, disabled }) => {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
@@ -13,11 +13,13 @@ const BetSelector = ({ value, onChange, onPlaceBet }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onChange(amount)}
-            className={`px-3 py-2 rounded-lg text-sm md:text-base transition-all duration-200 font-casino tracking-wide ${
-              value === amount
+            disabled={disabled}
+            className={`px-3 py-2 rounded-lg text-sm md:text-base transition-all duration-200 font-casino tracking-wide 
+              ${disabled ? 'opacity-50 cursor-not-allowed' : ''} 
+              ${value === amount
                 ? 'bg-brand-purple text-white'
                 : 'bg-surface border border-surface-border text-white hover:border-brand-purple'
-            }`}
+              }`}
           >
             {amount} SOL
           </motion.button>
@@ -75,12 +77,12 @@ const BetSelector = ({ value, onChange, onPlaceBet }) => {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={onPlaceBet}
-        disabled={!value || value <= 0}
+        disabled={!value || value <= 0 || disabled}
         className="w-full py-3 font-casino tracking-wide text-lg bg-gradient-game text-white rounded-lg 
         transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed 
         hover:shadow-neon"
       >
-        Place {value > 0 ? `${value} SOL` : 'Bet'}
+        {disabled ? 'Game in Progress' : `Place ${value > 0 ? `${value} SOL` : 'Bet'}`}
       </motion.button>
     </div>
   );
