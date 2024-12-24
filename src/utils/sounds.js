@@ -6,5 +6,8 @@ const sounds = {
 };
 
 export const playSound = (soundName) => {
-  sounds[soundName]?.play().catch(console.error);
+  const settings = JSON.parse(localStorage.getItem('krankSettings'));
+  if (settings?.soundEnabled) {
+    sounds[soundName]?.play().catch(console.error);
+  }
 };

@@ -6,6 +6,7 @@ import Logo from '../Header/Logo';
 import WalletButton from '../Header/WalletButton';
 import GameTable from './GameTable';
 import SidePanel from './SidePanel';
+import { useSettings } from '../../context/SettingsContext';
 
 const GameContent = () => {
   const {
@@ -20,6 +21,8 @@ const GameContent = () => {
     stand,
     calculateHand
   } = useBlackjack();
+
+  const { settings } = useSettings();
 
   const [betAmount, setBetAmount] = useState(0);
 
@@ -50,6 +53,7 @@ const GameContent = () => {
             onDeal={handlePlaceBet}
             onHit={hit}
             onStand={stand}
+            animate={settings.animations}
           />
           <SidePanel 
             betAmount={betAmount}
