@@ -4,13 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#0F172A',      // Deep blue-black
-        'secondary': '#1E293B',    // Lighter blue-black
-        'accent-1': '#F43F5E',     // Soft rose
-        'accent-2': '#3B82F6',     // Gentle blue
-        'accent-3': '#10B981',     // Mint green
-        'surface': 'rgba(0, 0, 0, 0.85)',
+        'primary': '#0F172A',     
+        'secondary': '#1E293B',  
+        'accent-1': '#F43F5E',     
+        'accent-2': '#3B82F6',    
+        'accent-3': '#10B981',    
+        'surface': 'rgba(15, 23, 42, 0.95)',
         'surface-border': 'rgba(255, 255, 255, 0.1)',
+        'surface-lighter': 'rgba(30, 41, 59, 0.98)',
+        'table-bg': '#0c1220',
+        'card-surface': 'rgba(51, 65, 85, 0.9)',
         'text-primary': '#F8FAFC',
         'text-secondary': '#CBD5E1',
         'card-back': '#334155',
@@ -47,8 +50,9 @@ export default {
       },
       boxShadow: {
         'neon': '0 0 20px rgba(59, 130, 246, 0.3)',
-        'card': '0 8px 32px rgba(0, 0, 0, 0.2)',
+        'card': '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
         'glow': '0 0 20px rgba(59, 130, 246, 0.15)',
+        'game': '0 0 40px rgba(0, 0, 0, 0.5)',
       },
       screens: {
         'xs': '475px',

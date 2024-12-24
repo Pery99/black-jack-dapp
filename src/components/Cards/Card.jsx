@@ -40,7 +40,7 @@ const Card = ({ suit, value, hidden, index }) => {
         initial="initial"
         animate="animate"
         whileHover="hover"
-        className="w-24 h-36 bg-gradient-to-br from-accent-2 to-accent-3 rounded-xl shadow-neon border border-surface-border backdrop-blur-xl"
+        className="w-24 h-36 bg-gradient-to-br from-brand-purple to-brand-pink rounded-xl shadow-card border border-surface-border backdrop-blur-xl transform hover:-translate-y-1 transition-transform duration-200"
       >
         <div className="w-full h-full flex items-center justify-center">
           <span className="text-3xl text-white">?</span>
@@ -55,7 +55,7 @@ const Card = ({ suit, value, hidden, index }) => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="w-24 h-36 bg-surface backdrop-blur-xl rounded-xl shadow-card border border-surface-border p-4 flex flex-col justify-between"
+      className="w-24 h-36 bg-surface-lighter backdrop-blur-xl rounded-xl shadow-card border border-surface-border p-4 flex flex-col justify-between transform hover:-translate-y-1 transition-transform duration-200"
     >
       <div className={`text-xl ${getSuitColor()}`}>{value}</div>
       <div className={`text-4xl ${getSuitColor()} self-center`}>{suit}</div>
