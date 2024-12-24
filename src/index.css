@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-casino {
+    font-family: "casino", Sans-serif !important;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .btn-gradient {
+    @apply bg-gradient-game text-white font-medium px-6 py-2 rounded-lg 
+    transition-all duration-300 hover:opacity-90 hover:scale-105;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-dark border border-surface-border;
+  }
+
+  .game-text {
+    @apply text-white font-medium;
+  }
+
+  .value-text {
+    @apply text-brand-purple font-casino;
+  }
+
+  .game-heading {
+    @apply font-casino tracking-wider;
+  }
+
+  .game-value {
+    @apply font-casino tracking-wide;
+  }
+}
+
+/* Custom button styles */
+.wallet-adapter-button {
+  @apply bg-gradient-game !important;
+  @apply font-casino !important;
+}
+
+/* Game text styles */
+.game-title {
+  @apply font-casino text-brand-red;
+}
+
+.stat-value {
+  @apply font-casino text-brand-purple;
+}
+
+/* Game text overrides */
+.text-game {
+  @apply text-white !important;
+}
+
+input {
+  @apply text-white !important;
+}
