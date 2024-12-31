@@ -29,7 +29,7 @@ const BalanceSection = ({ balance, onClaim }) => (
   </div>
 );
 
-const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameState }) => {
+const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameState, showStats = true }) => {
   const handleClaim = async () => {
     try {
       // Add your claim logic here
@@ -58,14 +58,16 @@ const SidePanel = ({ betAmount, setBetAmount, onPlaceBet, stats, balance, gameSt
         />
       </motion.div>
 
-      {/* Stats Panel */}
-      <motion.div
-        className="bg-surface border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
-        whileHover={{ scale: 1.01 }}
-      >
-        <PanelHeading>Game Statistics</PanelHeading>
-        <GameStats stats={stats} />
-      </motion.div>
+      {/* Stats Panel - Only show on desktop or when showStats is true */}
+      {showStats && (
+        <motion.div
+          className="bg-surface border border-surface-border rounded-xl p-4 sm:p-6 backdrop-blur-xl"
+          whileHover={{ scale: 1.01 }}
+        >
+          <PanelHeading>Game Statistics</PanelHeading>
+          <GameStats stats={stats} />
+        </motion.div>
+      )}
     </div>
   );
 };

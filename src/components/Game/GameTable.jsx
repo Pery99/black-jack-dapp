@@ -36,6 +36,20 @@ const GameTable = ({
             exit={{ opacity: 0, y: -20 }}
             className="bg-surface border border-surface-border rounded-2xl p-4 sm:p-6 mb-20 md:mb-0"
           >
+            {/* Add return to bets button when game is over */}
+            {(gameState === 'player' || gameState === 'dealer' || gameState === 'tie') && (
+              <div className="text-center mt-4">
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="px-4 py-2 bg-brand-purple text-white rounded-full font-casino text-sm"
+                  onClick={() => setActiveTab('bets')}
+                >
+                  Place New Bet
+                </motion.button>
+              </div>
+            )}
+            
             <div className="text-center mb-4">
               <span className={`px-4 py-1 rounded-full ${
                 gameState === 'player' ? 'bg-accent-3/20 text-accent-3' :
