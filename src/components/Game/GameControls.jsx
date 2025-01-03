@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 const GameControls = ({ gameState, onDeal, onHit, onStand }) => {
   return (
-    <div className="flex flex-wrap gap-2 justify-center items-center mt-4">
+    <div className="flex justify-center items-center gap-2 mt-4 relative">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onDeal}
-        className="w-full sm:w-auto px-8 py-3 bg-accent-2 text-white rounded-lg font-casino tracking-wider"
+        className="game-button w-24 py-2.5"
         disabled={gameState !== "idle"}
       >
         Deal
@@ -17,7 +17,7 @@ const GameControls = ({ gameState, onDeal, onHit, onStand }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onHit}
-        className="w-full sm:w-auto px-8 py-3 bg-accent-3 text-white rounded-lg font-casino tracking-wider"
+        className="game-button w-24 py-2.5"
         disabled={gameState !== "playing"}
       >
         Hit
@@ -26,7 +26,7 @@ const GameControls = ({ gameState, onDeal, onHit, onStand }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onStand}
-        className="w-full sm:w-auto px-8 py-3 bg-accent-1 text-white rounded-lg font-casino tracking-wider"
+        className="game-button w-24 py-2.5"
         disabled={gameState !== "playing"}
       >
         Stand

@@ -34,7 +34,7 @@ const GameTable = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="bg-surface border border-surface-border rounded-2xl p-4 sm:p-6 mb-20 md:mb-0"
+            className="bg-surface border border-surface-border rounded-2xl p-4 sm:p-6 mb-24 md:mb-6" // Updated margin bottom
           >
             {/* Add return to bets button when game is over */}
             {(gameState === 'player' || gameState === 'dealer' || gameState === 'tie') && (
@@ -52,9 +52,9 @@ const GameTable = ({
             
             <div className="text-center mb-4">
               <span className={`px-4 py-1 rounded-full ${
-                gameState === 'player' ? 'bg-accent-3/20 text-accent-3' :
+                gameState === 'player' ? 'bg-[#FEFCC1]/20 text-[#FEFCC1]' :
                 gameState === 'dealer' ? 'bg-accent-1/20 text-accent-1' :
-                'bg-brand-dark text-brand-purple'
+                'bg-brand-dark text-[#FEFCC1]'
               } text-sm font-casino tracking-wide`}>
                 {getStatusMessage(gameState)}
               </span>
@@ -124,8 +124,8 @@ const GameTable = ({
           className="flex flex-col items-center justify-center h-full min-h-[400px] bg-surface/50 border border-surface-border rounded-2xl p-6"
         >
           <span className="text-4xl mb-4">🎲</span>
-          <h2 className="text-2xl font-casino text-brand-purple mb-2">Welcome to Krank BlackJack</h2>
-          <p className="text-white/80 text-center">Place your bet to start playing</p>
+          <h2 className="text-2xl font-casino text-text-primary mb-2">Welcome to Krank BlackJack</h2>
+          <p className="text-[#FEF47E]/80 text-center">Place your bet to start playing</p>
         </motion.div>
       )}
     </div>

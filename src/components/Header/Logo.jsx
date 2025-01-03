@@ -5,7 +5,7 @@ const Logo = () => (
   <div className="flex items-center gap-3">
     <div className="w-12 h-12 relative">
       <img
-        src="/krank-logo.png"
+        src="/krank-logo.jpg"
         alt="Krank Logo"
         className="w-full h-full object-contain"
         onError={(e) => {

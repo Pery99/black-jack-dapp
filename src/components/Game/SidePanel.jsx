@@ -5,17 +5,17 @@ import GameStats from './GameStats';
 
 const PanelHeading = ({ children }) => (
   <div className="relative mb-6">
-    <h2 className="text-xl font-casino tracking-wider bg-gradient-to-r from-brand-red via-brand-purple to-brand-pink bg-clip-text text-transparent">
+    <h2 className="text-xl font-casino tracking-wider bg-gradient-to-r from-accent-1 via-accent-2 to-accent-1/50 bg-clip-text text-transparent">
       {children}
     </h2>
-    <div className="absolute -bottom-2 left-0 w-1/3 h-0.5 bg-gradient-to-r from-brand-red to-transparent"></div>
+    <div className="absolute -bottom-2 left-0 w-1/3 h-0.5 bg-gradient-to-r from-accent-1 to-transparent"></div>
   </div>
 );
 
 const BalanceSection = ({ balance, onClaim }) => (
   <div className="mb-6 p-4 bg-surface-lighter rounded-lg border border-surface-border">
     <div className="flex justify-between items-center mb-2">
-      <h3 className="text-accent-2 text-sm">Balance</h3>
+      <h3 className="text-accent-1 text-sm">Balance</h3>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -25,7 +25,7 @@ const BalanceSection = ({ balance, onClaim }) => (
         Claim balance
       </motion.button>
     </div>
-    <div className="text-white text-2xl font-bold font-casino">{balance} SOL</div>
+    <div className="text-text-primary text-2xl font-bold font-casino">{balance} SOL</div>
   </div>
 );
 

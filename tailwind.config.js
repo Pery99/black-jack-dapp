@@ -4,25 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#0F172A',     
-        'secondary': '#1E293B',  
-        'accent-1': '#F43F5E',     
-        'accent-2': '#3B82F6',    
-        'accent-3': '#10B981',    
-        'surface': 'rgba(15, 23, 42, 0.95)',
-        'surface-border': 'rgba(255, 255, 255, 0.1)',
-        'surface-lighter': 'rgba(30, 41, 59, 0.98)',
-        'table-bg': '#0c1220',
-        'card-surface': 'rgba(51, 65, 85, 0.9)',
-        'text-primary': '#F8FAFC',
-        'text-secondary': '#CBD5E1',
-        'card-back': '#334155',
+        'primary': '#070510',      // Dark background
+        'secondary': '#02010F',    // Slightly lighter dark
+        'accent-1': '#3BC0F8',     // Bright blue
+        'accent-2': '#1881C8',     // Medium blue
+        'surface': 'rgba(7, 5, 16, 0.95)',
+        'surface-border': 'rgba(59, 192, 248, 0.1)',
+        'surface-lighter': 'rgba(2, 1, 15, 0.98)',
         'brand': {
-          red: '#FF0032',
-          purple: '#8000FF',
-          dark: '#000000',
-          pink: '#C204D3',
-          crimson: '#CC0606',
+          blue: '#3BC0F8',
+          darkBlue: '#1881C8',
+          dark: '#070510',
+          darker: '#02010F',
+        },
+        'text': {
+          primary: '#FEFCC1',  // Updated from #FEF47E
+          secondary: '#3BC0F8',
+        },
+        'game-action': {
+          primary: '#3BC0F8',
+          secondary: '#1881C8',
+          highlight: '#4CD7FF',
+          border: 'rgba(59, 192, 248, 0.5)',
         },
       },
       fontFamily: {
@@ -43,15 +46,15 @@ export default {
         }
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(circle at top, var(--tw-gradient-stops))',
+        'gradient-radial': 'radial-gradient(circle at top, #1881C8, #070510)',
         'mesh-pattern': 'linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1))',
-        'gradient-game': 'linear-gradient(210deg, #CC0606 0%, #C204D3 100%)',
-        'gradient-dark': 'linear-gradient(to bottom, #000000, #1a0012)',
+        'gradient-game': 'linear-gradient(210deg, #1881C8 0%, #3BC0F8 100%)',
+        'gradient-dark': 'linear-gradient(to bottom, #070510, #02010F)',
       },
       boxShadow: {
-        'neon': '0 0 20px rgba(59, 130, 246, 0.3)',
-        'card': '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-        'glow': '0 0 20px rgba(59, 130, 246, 0.15)',
+        'neon': '0 0 20px rgba(59, 192, 248, 0.3)',
+        'card': '0 8px 32px rgba(7, 5, 16, 0.4), 0 0 0 1px rgba(59, 192, 248, 0.1)',
+        'glow': '0 0 20px rgba(59, 192, 248, 0.15)',
         'game': '0 0 40px rgba(0, 0, 0, 0.5)',
       },
       screens: {

@@ -9,10 +9,10 @@ const GameStats = ({ stats }) => (
         whileHover={{ scale: 1.02 }}
         className="bg-surface border border-surface-border rounded-xl p-3 backdrop-blur-xl"
       >
-        <h3 className="text-accent-2 text-xs sm:text-sm uppercase tracking-wider truncate">
+        <h3 className="text-accent-1 text-xs sm:text-sm uppercase tracking-wider truncate">
           {key}
         </h3>
-        <p className="text-white text-lg sm:text-2xl font-bold mt-1">{value}</p>
+        <p className="text-text-primary text-lg sm:text-2xl font-bold mt-1">{value}</p>
       </motion.div>
     ))}
   </div>

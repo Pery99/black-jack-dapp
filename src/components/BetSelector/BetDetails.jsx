@@ -6,7 +6,7 @@ const predefinedBets = [0.1, 0.5, 1, 2, 5];
 const BetSelector = ({ value, onChange, onPlaceBet, disabled }) => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-casino text-accent-1">Current Bet</h2>
+      <h2 className="text-xl font-casino text-accent-1 mb-4">Current Bet</h2>
       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
         {predefinedBets.map((amount) => (
           <motion.button
@@ -19,8 +19,8 @@ const BetSelector = ({ value, onChange, onPlaceBet, disabled }) => {
               ${disabled ? "opacity-50 cursor-not-allowed" : ""} 
               ${
                 value === amount
-                  ? "bg-accent-1 text-white"
-                  : "bg-surface border border-accent-1/20 text-accent-2 hover:border-accent-1"
+                  ? "bg-[#FEFCC1] text-primary"
+                  : "bg-surface border border-surface-border text-white hover:border-[#FEFCC1]"
               }`}
           >
             {amount} SOL
@@ -35,12 +35,12 @@ const BetSelector = ({ value, onChange, onPlaceBet, disabled }) => {
             type="number"
             value={value || ""}
             onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
-            className="w-full bg-surface border border-accent-1/20 rounded-lg px-3 py-2 text-sm text-accent-1"
+            className="w-full bg-secondary border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary appearance-none"
             placeholder="Custom amount"
             step="0.1"
             min="0"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-accent-2 text-sm">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[#FEFCC1]/50 text-sm">
             SOL
           </span>
         </div>
@@ -70,7 +70,7 @@ const BetSelector = ({ value, onChange, onPlaceBet, disabled }) => {
           whileTap={{ scale: 0.98 }}
           onClick={() => onChange(value / 2)}
           disabled={!value}
-          className="px-3 py-2 text-sm bg-accent-1/20 text-accent-1 rounded-lg hover:bg-accent-1/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-3 py-2 text-sm bg-primary/20 text-primary rounded-lg hover:bg-primary/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Half
         </motion.button>

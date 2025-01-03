@@ -5,6 +5,7 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #070510;
   }
 
   .font-casino {
@@ -15,51 +16,126 @@
 
 @layer components {
   .btn-gradient {
-    @apply bg-gradient-game text-white font-medium px-6 py-2 rounded-lg 
-    transition-all duration-300 hover:opacity-90 hover:scale-105;
+    @apply bg-gradient-to-r from-[#3BC0F8] to-[#1881C8] text-white font-medium px-6 py-2 rounded-lg 
+    transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-lg hover:shadow-[#3BC0F8]/20;
   }
 
   .card-gradient {
-    @apply bg-gradient-dark border border-surface-border;
+    @apply bg-gradient-to-b from-[#070510] to-[#0c0a1d] border border-[#3BC0F8]/20;
   }
 
   .game-text {
-    @apply text-white font-medium;
+    @apply text-[#3BC0F8] font-medium;
   }
 
   .value-text {
-    @apply text-brand-purple font-casino;
+    @apply text-[#1881C8] font-casino;
   }
 
   .game-heading {
-    @apply font-casino tracking-wider;
+    @apply font-casino tracking-wider text-[#3BC0F8];
   }
 
   .game-value {
-    @apply font-casino tracking-wide;
+    @apply font-casino tracking-wide text-[#1881C8];
   }
 }
 
 /* Custom button styles */
 .wallet-adapter-button {
-  @apply bg-gradient-game !important;
+  @apply bg-gradient-to-r from-[#3BC0F8] to-[#1881C8] !important;
   @apply font-casino !important;
+  @apply shadow-lg hover:shadow-[#3BC0F8]/30 !important;
 }
 
 /* Game text styles */
 .game-title {
-  @apply font-casino text-brand-red;
+  @apply font-casino text-[#3BC0F8];
 }
 
 .stat-value {
-  @apply font-casino text-brand-purple;
+  @apply text-accent-1 font-casino !important;
 }
 
-/* Game text overrides */
+/* Custom text colors */
+.text-primary {
+  @apply text-[#3BC0F8] !important;
+}
+
+/* Update text overrides */
 .text-game {
-  @apply text-white !important;
+  @apply text-[#3BC0F8] !important;
 }
 
 input {
-  @apply text-white !important;
+  @apply text-white bg-[#070510] border border-[#3BC0F8]/20 focus:border-[#3BC0F8] 
+  focus:ring-1 focus:ring-[#3BC0F8] rounded-lg !important;
+}
+
+/* New additions for enhanced visual effects */
+.glow-effect {
+  @apply relative;
+}
+
+.glow-effect::after {
+  content: '';
+  @apply absolute -inset-1 bg-gradient-to-r from-[#3BC0F8] to-[#1881C8] 
+  opacity-30 blur-lg -z-10 transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply glow-effect;
+}
+
+/* Game action buttons */
+.game-button {
+  @apply bg-gradient-to-r from-[#3BC0F8] to-[#1881C8] text-white font-casino
+  px-4 py-2 rounded-lg transition-all duration-300
+  shadow-lg hover:shadow-[#3BC0F8]/30
+  hover:scale-105 active:scale-95 !important;
+}
+
+.game-button:disabled {
+  @apply opacity-50 cursor-not-allowed hover:scale-100 !important;
+}
+
+/* Action buttons (Half, Hit, etc.) */
+button[class*="action-"] {
+  @apply game-button;
+}
+
+/* Specific button states */
+.action-half, .action-hit, .action-stand, .action-double {
+  @apply min-w-[80px] text-center !important;
+}
+
+/* Hover states for better visibility */
+.action-half:hover, .action-hit:hover, .action-stand:hover, .action-double:hover {
+  @apply brightness-110 !important;
+}
+
+/* Active states */
+.action-half:active, .action-hit:active, .action-stand:active, .action-double:active {
+  @apply brightness-90 !important;
+}
+
+/* Mobile Game Controls */
+@media (max-width: 768px) {
+  .game-button {
+    @apply text-sm py-3 px-4 !important;
+  }
+  
+  /* Add bottom padding to content to prevent overlap with fixed controls */
+  .game-table-content {
+    @apply pb-24 !important;
+  }
+}
+
+/* Additional text styles for better visibility */
+.heading-text {
+  @apply text-accent-1 font-casino tracking-wide !important;
+}
+
+.stat-label {
+  @apply text-accent-2 font-medium !important;
 }
